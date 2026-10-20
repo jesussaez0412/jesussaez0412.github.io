@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estanco de Belicena - Vegas del Genil, Granada</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display (Serif Elegante) & Inter (Sans-serif limpia) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f1',
+                            100: '#ffdfdf',
+                            200: '#ffc5c5',
+                            500: '#e11d48',
+                            600: '#be123c',
+                            700: '#9f1239', // Rojo Estanco Principal
+                            800: '#881337', // Granate Profundo
+                            900: '#4c0519', // Rojo Oscuro Noche
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#d97706',
+                            600: '#b45309',
+                        },
+                        dark: {
+                            900: '#0f0f11',
+                            800: '#18181b',
+                            700: '#27272a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Subtle Animations */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15,15,17,0.95) 0%, rgba(136,19,55,0.85) 50%, rgba(15,15,17,0.95) 100%);
+        }
+        .gold-border {
+            border-image: linear-gradient(to right, #d97706, #fbbf24, #d97706) 1;
+        }
+        .red-glow {
+            box-shadow: 0 10px 30px -10px rgba(159, 18, 57, 0.4);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200 font-sans antialiased selection:bg-brand-700 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed w-full top-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-brand-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Brand Title -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-800 to-brand-600 flex items-center justify-center border border-gold-500/40 shadow-lg group-hover:scale-105 transition-transform">
+                        <span class="text-white font-serif font-bold text-xl">T</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-xl tracking-wide text-white group-hover:text-brand-500 transition-colors">Estanco de Belicena</span>
+                        <span class="text-xs text-gold-400 font-medium tracking-widest uppercase">Expeduría Nº 1 · Vegas del Genil</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="text-gray-300 hover:text-white hover:border-b-2 hover:border-brand-600 py-1 transition-all">Inicio</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-white hover:border-b-2 hover:border-brand-600 py-1 transition-all">Servicios & Productos</a>
+                    <a href="#horarios" class="text-gray-300 hover:text-white hover:border-b-2 hover:border-brand-600 py-1 transition-all">Horarios</a>
+                    <a href="#ubicacion" class="text-gray-300 hover:text-white hover:border-b-2 hover:border-brand-600 py-1 transition-all">Ubicación</a>
+                </nav>
+
+                <!-- CTA Button Header -->
+                <div class="hidden md:flex items-center">
+                    <a href="tel:+34958000000" class="flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white px-4 py-2 rounded-full font-medium text-sm transition-all shadow-lg red-glow hover:scale-105">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                        <span>Llamar ahora</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden text-gray-300 hover:text-white focus:outline-none" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-brand-900/40 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-gray-300 hover:text-white border-b border-gray-800">Inicio</a>
+            <a href="#servicios" class="block py-2 text-gray-300 hover:text-white border-b border-gray-800">Servicios & Productos</a>
+            <a href="#horarios" class="block py-2 text-gray-300 hover:text-white border-b border-gray-800">Horarios</a>
+            <a href="#ubicacion" class="block py-2 text-gray-300 hover:text-white border-b border-gray-800">Ubicación y Contacto</a>
+            <a href="tel:+34958000000" class="inline-block mt-2 w-full text-center bg-brand-700 hover:bg-brand-600 text-white py-2 rounded-lg font-medium">
+                <i class="fa-solid fa-phone mr-2"></i>Llamar
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen pt-28 flex items-center justify-center overflow-hidden bg-dark-900">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/40 via-dark-900 to-dark-900"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-700/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-900/60 border border-brand-600/40 text-brand-200 text-xs sm:text-sm font-medium mb-8 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+                <span>Tu estanco de confianza en Vegas del Genil</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Estanco de <span class="gold-text">Belicena</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Calidad, atención personalizada y una extensa variedad de servicios oficiales en el corazón de Belicena. Puros de selección, vapeo, loterías y mucho más.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#servicios" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-800 to-brand-600 hover:from-brand-700 hover:to-brand-500 text-white font-semibold shadow-xl red-glow transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                    <span>Ver Servicios y Productos</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#ubicacion" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card hover:bg-white/10 text-white font-semibold transition-all border border-gray-700 hover:border-gold-500/50 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-location-dot text-gold-400"></i>
+                    <span>Cómo Llegar</span>
+                </a>
+            </div>
+
+            <!-- Highlights Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 border-t border-gray-800/80">
+                <div class="p-4 text-center">
+                    <i class="fa-solid fa-smoking text-brand-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Cavas de Puros</p>
+                    <p class="text-sm font-semibold text-white">Conservación Óptima</p>
+                </div>
+                <div class="p-4 text-center">
+                    <i class="fa-solid fa-bus text-gold-400 text-2xl mb-2"></i>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Recargas</p>
+                    <p class="text-sm font-semibold text-white">BonoBus / Consorcio</p>
+                </div>
+                <div class="p-4 text-center">
+                    <i class="fa-solid fa-clover text-green-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Loterías</p>
+                    <p class="text-sm font-semibold text-white">Juegos del Estado</p>
+                </div>
+                <div class="p-4 text-center">
+                    <i class="fa-solid fa-stamp text-blue-400 text-2xl mb-2"></i>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Trámites</p>
+                    <p class="text-sm font-semibold text-white">Timbre y Impresos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS Y SERVICIOS SECTION -->
+    <section id="servicios" class="py-24 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-2">Variedad y Excelencia</h2>
+                <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Nuestros Productos y Servicios</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-brand-700 via-gold-500 to-brand-700 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-400 text-base sm:text-lg">
+                    Ofrecemos una atención cercana con un amplio catálogo diseñado para cubrir todas sus necesidades diarias y especializadas.
+                </p>
+            </div>
+
+            <!-- Grid de Servicios -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Tabaco y Puros -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-600/60 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-box-tissue"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-white mb-3">Labores de Tabaco y Puros</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Extensa selección de cigarrillos, tabacos de liar y de pipa. Contamos con cava con control de humedad para cigarros y puros de importación (Habanos, República Dominicana).
+                    </p>
+                    <span class="inline-flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        Conservación premium <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 2: Artículos de Fumador & Vapeo -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-600/60 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-white mb-3">Vapeo y Complementos</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Dispositivos de vapeo (vapers desechables y recargables), e-liquids, cachimbas/shishas y accesorios, mecheros Zippo y Clipper, picadoras, papel de fumar y filtros de todas las marcas.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        Últimas novedades <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 3: Loterías y Apuestas -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-600/60 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-clover"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-white mb-3">Juegos y Apuestas del Estado</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Punto oficial para validar tus boletos de Lotería Nacional, Primitiva, Bonoloto, Eurojackpot, Quiniela y El Gordo. ¡Repartiendo suerte en Belicena!
+                    </p>
+                    <span class="inline-flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        Punto Oficial SELAE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 4: Timbre y Tramitaciones -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-600/60 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-white mb-3">Timbre del Estado y Documentos</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Venta de papel timbrado, sellos de correos, pólizas, impresos oficiales para tramitaciones administrativas, licencias de caza y pesca.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        Gestiones oficiales <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 5: Transportes y Telefonía -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-600/60 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-white mb-3">Recargas de Transporte y Móvil</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Recarga rápida para la tarjeta del Consorcio de Transportes de Granada (BonoBus) y tarjetas de telefonía móvil prepago de las principales compañías.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        Recarga al instante <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Card 6: Prensa, Regalos y Golosinas -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-600/60 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-white mb-3">Prensa, Regalos y Varios</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Prensa diaria, revistas especializadas, artículos de papelería, pequeños detalles de regalo, caramelos, golosinas y snacks.
+                    </p>
+                    <span class="inline-flex items-center text-xs font-semibold text-gold-400 gap-1">
+                        Prensa diaria <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS SECTION -->
+    <section id="horarios" class="py-24 bg-dark-900 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-gradient-to-b from-dark-800 to-dark-900 rounded-3xl border border-brand-900/60 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Glowing corner accent -->
+                <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-700/20 rounded-full blur-2xl"></div>
+
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-900/80 text-brand-400 mb-4 border border-brand-700/40">
+                        <i class="fa-regular fa-clock text-xl"></i>
+                    </div>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-2">Horario de Atención</h3>
+                    <p class="text-gray-400 text-sm">Abiertos para ofrecerte el mejor servicio comercial</p>
+                </div>
+
+                <!-- Schedule Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    
+                    <!-- Lunes a Viernes -->
+                    <div class="bg-dark-900/80 rounded-2xl p-6 border border-gray-800 hover:border-brand-700/40 transition-colors text-center">
+                        <div class="text-brand-500 font-semibold text-sm uppercase tracking-wider mb-2">Lunes a Viernes</div>
+                        <div class="text-2xl font-bold text-white mb-2">Mañanas & Tardes</div>
+                        <div class="space-y-1 text-sm text-gray-300">
+                            <p><span class="text-gold-400">09:00</span> - <span class="text-gold-400">14:00</span> h</p>
+                            <p><span class="text-gold-400">17:00</span> - <span class="text-gold-400">20:30</span> h</p>
+                        </div>
+                    </div>
+
+                    <!-- Sábados -->
+                    <div class="bg-dark-900/80 rounded-2xl p-6 border border-gray-800 hover:border-brand-700/40 transition-colors text-center">
+                        <div class="text-brand-500 font-semibold text-sm uppercase tracking-wider mb-2">Sábados</div>
+                        <div class="text-2xl font-bold text-white mb-2">Solo Mañanas</div>
+                        <div class="space-y-1 text-sm text-gray-300">
+                            <p><span class="text-gold-400">09:00</span> - <span class="text-gold-400">14:00</span> h</p>
+                            <p class="text-xs text-gray-500 mt-2">Tardes cerrado</p>
+                        </div>
+                    </div>
+
+                    <!-- Domingos y Festivos -->
+                    <div class="bg-dark-900/80 rounded-2xl p-6 border border-gray-800 hover:border-brand-700/40 transition-colors text-center">
+                        <div class="text-brand-500 font-semibold text-sm uppercase tracking-wider mb-2">Domingos y Festivos</div>
+                        <div class="text-2xl font-bold text-white mb-2">Descanso</div>
+                        <div class="text-sm text-gray-400 py-2">
+                            Cerrado por descanso del personal
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Info note -->
+                <div class="mt-8 text-center text-xs text-gray-400 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-info text-gold-400"></i>
+                    <span>Los horarios pueden sufrir ligeras modificaciones en fechas festivas o periodos estivales.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- UBICACIÓN Y CONTACTO SECTION -->
+    <section id="ubicacion" class="py-24 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Info Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <h2 class="text-xs font-semibold uppercase tracking-widest text-gold-400 mb-2">Visítanos en Belicena</h2>
+                        <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Ubicación y Contacto</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Estamos situados en el núcleo urbano de Belicena (municipio de Vegas del Genil), con fácil acceso y facilidades de aparcamiento cercano.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Direction -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-gold-400 shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Dirección</h4>
+                                <p class="text-gray-300 text-sm">Calle Real / Zona Centro comercial</p>
+                                <p class="text-gray-400 text-xs">18101 Belicena, Vegas del Genil (Granada)</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-gold-400 shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Teléfono de atención</h4>
+                                <p class="text-gray-300 text-sm"><a href="tel:+34958000000" class="hover:text-brand-400 transition-colors">+34 958 00 00 00</a></p>
+                                <p class="text-gray-400 text-xs">Disponible en horario comercial</p>
+                            </div>
+                        </div>
+
+                        <!-- Bus lines / Access -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-900/80 border border-brand-700/50 flex items-center justify-center text-gold-400 shrink-0">
+                                <i class="fa-solid fa-bus-simple text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Transporte Público</h4>
+                                <p class="text-gray-300 text-sm">Línea Consorcio de Granada - Belicena</p>
+                                <p class="text-gray-400 text-xs">Parada cercana a pocos metros del local</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- External Google Maps Button -->
+                    <div>
+                        <a href="https://maps.google.com/?q=Belicena+Vegas+del+Genil+Granada" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-gradient-to-r from-brand-800 to-brand-600 hover:from-brand-700 hover:to-brand-500 text-white font-medium px-6 py-3.5 rounded-xl transition-all shadow-lg red-glow">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span>Abrir ubicación en Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Map Concept/Visual -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card rounded-3xl p-4 border border-gray-700/60 overflow-hidden relative group">
+                        
+                        <!-- Stylized CSS Map Canvas Representation -->
+                        <div class="w-full h-96 bg-dark-900 rounded-2xl relative overflow-hidden flex items-center justify-center border border-gray-800">
+                            <!-- Map background grid pattern -->
+                            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#9f1239_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            
+                            <!-- Stylized roads -->
+                            <div class="absolute w-full h-4 bg-gray-800 top-1/2 -translate-y-1/2 rotate-12"></div>
+                            <div class="absolute w-4 h-full bg-gray-800 left-1/2 -translate-x-1/2"></div>
+                            <div class="absolute w-full h-3 bg-brand-900/40 top-1/3"></div>
+
+                            <!-- Map Pin Marker -->
+                            <div class="relative z-10 flex flex-col items-center animate-bounce">
+                                <div class="bg-brand-600 text-white p-3 rounded-full shadow-2xl border-2 border-gold-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-store text-xl"></i>
+                                </div>
+                                <div class="w-3 h-3 bg-brand-600 rotate-45 -mt-2"></div>
+                                <div class="mt-2 bg-dark-900/90 text-white font-serif text-xs font-bold px-3 py-1 rounded-full border border-gold-500/50 shadow-lg">
+                                    Estanco de Belicena
+                                </div>
+                            </div>
+
+                            <!-- Map Overlay Badge -->
+                            <div class="absolute bottom-4 right-4 bg-dark-900/90 backdrop-blur-md px-4 py-2 rounded-lg border border-gray-700 text-xs text-gray-300">
+                                <span class="text-brand-500 font-bold">●</span> Vegas del Genil, Granada
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-900 text-gray-400 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-gray-800/80 items-center">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="font-serif font-bold text-lg text-white">Estanco de Belicena</span>
+                    <p class="text-xs text-gray-500">Expeduría Oficial de Tabacos nº 1 de Vegas del Genil, Granada.</p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="flex justify-center space-x-6 text-sm font-medium">
+                    <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+                    <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                    <a href="#horarios" class="hover:text-white transition-colors">Horarios</a>
+                    <a href="#ubicacion" class="hover:text-white transition-colors">Contacto</a>
+                </div>
+
+                <!-- Col 3: Legal & Notice -->
+                <div class="text-center md:text-right text-xs text-gray-500 space-y-1">
+                    <p>Prohibida la venta de alcohol y tabaco a menores de 18 años.</p>
+                    <p>Fumar perjudica seriamente su salud y la de quienes le rodean.</p>
+                </div>
+            </div>
+
+            <!-- Credits & Copyright -->
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <div>
+                    &copy; <span id="year"></span> Estanco de Belicena. Todos los derechos reservados.
+                </div>
+                
+                <!-- Explicit Developer Credits Requirement -->
+                <div class="bg-dark-800 px-4 py-2 rounded-full border border-gray-800 text-gray-300">
+                    Desarrollado por <span class="text-gold-400 font-semibold">Jesús Sáez Martín</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a navigation item is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
